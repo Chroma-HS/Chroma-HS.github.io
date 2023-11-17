@@ -225,20 +225,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Head swapping is a task that generates the seamless results of replacing the target human's head with the source head, which can be used in various industrial scenarios.
-            However, the state-of-the-art head swapping framework (HeSer) sometimes shows low-fidelity artifacts on 1) the background and 2) the body and neck regions, resulting in flaw production. 
-            The area that shows artifacts are hidden in both the source and the target due to the difference between head shapes and the long hair of the target.
-          </p>
-          <p>
-            Therefore, we propose <b>Chroma-HS</b>, a framework that transfers the head swapping task to a chroma key setting, which is a cost-effective way to remove artifacts on the inpainted background region and build a flawless system for industrial applications.
-            Although adapting the chroma keying resolves the artifacts on the background, the artifacts on the body and the neck remain. 
-            Thus, we introduce <b>Actor Manipulation</b> and <b>M</b>ask-<b>P</b>rediction and -<b>A</b>ware <b>T</b>ransformer (<b>MPAT</b>). 
-            Actor Manipulation is designed to reduce the artifacts due to the train-test gap. 
-            The train-test gap occurs because the head swap model is trained in a self-supervised way with the same identity of the source and the target, and it can not cover the cross-identity setting in the test. 
-            Actor Manipulation mitigates the problem by applying various augmentations to the model's input during training. 
-            MPAT inpaints the body and the neck region by only using the unmasked area of the body and the neck, not other parts such as the background. 
-            Experimental results show that our Chroma-HS significantly outperforms the state-of-the-art head swapping model on benchmark datasets qualitatively and quantitatively. 
-            Moreover, we demonstrate the effectiveness of our model using extensive in-depth studies.
+            Head swapping is a task that generates a seamless results of replacing the human's head of the target image with the head of the source image, which can be used in various real-world applications.
+            In this paper, we point out that the existing head swapping framework shows artifacts on the background, foreground (body and neck) regions and the unclear borders between them, especially in the challenging and practical cases where a large head shape and hair differences exist between the source and the target.
+            To overcome this problem, we propose <b>Chroma-HS</b>, a framework that splits the head swapping task into the background generation and foreground generation.
+            Chroma-HS proposes a new scheme by incorporating the chroma key technique in the background for the first time, which enables a diverse flawless background generation. 
+            In addition, Chroma-HS uses <b>F</b>oreground-<b>P</b>rediction and -<b>A</b>ware <b>T</b>ransformer (<b>FPAT</b>) to generate the foreground without the artifact from the background by restricting the attention of transformer blocks with the predicted foreground region. 
+            Finally, Chroma-HS mitigates the challenging case by training the model with our novel <b>H</b>ead shape and long <b>H</b>air <b>augmentation</b> (<b>H<sup>2</sup> augmentation</b>).
+            Experimental results show that our Chroma-HS significantly outperforms the state-of-the-art head swapping model on benchmark datasets both qualitatively and quantitatively. 
           </p>
         </div>
       </div>
