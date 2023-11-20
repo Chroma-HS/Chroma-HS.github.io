@@ -152,9 +152,10 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Effects of Our Contributions</h2>
+        <img src="./static/images/main.jpg" class="center">
         <div class="content has-text-justified">
           <p>
-            Our novel actor manipulation with chroma keying successfully achieves high-fidelity head swapping performance.
+            Our novel FPAT and H<sup>2</sup> augmentation with chroma keying successfully achieves high-fidelity head swapping performance.
             Point and drag your mouse to see the results!
           </p>
         </div>
@@ -215,8 +216,7 @@
     </div>
   </div>  
 </section>
-
-<hr/>
+<hr>
                 
 <section class="section">
   <div class="container is-max-desktop">
@@ -225,10 +225,10 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Head swapping is a task that generates a seamless results of replacing the human's head of the target image with the head of the source image, which can be used in various real-world applications.
-            In this paper, we point out that the existing head swapping framework shows artifacts on the background, foreground (body and neck) regions and the unclear borders between them, especially in the challenging and practical cases where a large head shape and hair differences exist between the source and the target.
+            Head swapping is a task that generates seamless results by replacing the human head of the target image with the head of the source image, which can be used in various real-world applications.
+            In this paper, we point out that the existing head swapping framework shows artifacts on the background and foreground (body and neck) regions and the unclear borders between them, especially in challenging and practical cases where a large head shape and hair differences exist between the source and the target.
             To overcome this problem, we propose <b>Chroma-HS</b>, a framework that splits the head swapping task into the background generation and foreground generation.
-            Chroma-HS proposes a new scheme by incorporating the chroma key technique in the background for the first time, which enables a diverse flawless background generation. 
+            Chroma-HS proposes a new scheme by incorporating the chroma key technique in the background for the first time, which enables a diverse flawless background generation.
             In addition, Chroma-HS uses <b>F</b>oreground-<b>P</b>rediction and -<b>A</b>ware <b>T</b>ransformer (<b>FPAT</b>) to generate the foreground without the artifact from the background by restricting the attention of transformer blocks with the predicted foreground region. 
             Finally, Chroma-HS mitigates the challenging case by training the model with our novel <b>H</b>ead shape and long <b>H</b>air <b>augmentation</b> (<b>H<sup>2</sup> augmentation</b>).
             Experimental results show that our Chroma-HS significantly outperforms the state-of-the-art head swapping model on benchmark datasets both qualitatively and quantitatively. 
@@ -247,10 +247,11 @@
           <h2 class="title is-3">Motivations</h2>
           <img src="./static/images/motivation.jpg" class="center">
           <h2 class="content has-text-justified">
-            Chroma-HS is proposed in consideration of the real-world application due to imperfect inpainting problems of previous work [2] (<a href="https://github.com/jmliu88/HeSer">HeSer</a>) such as red boxes of (a). To do so, Chroma-HS paints the background of the target with the green screen for chroma keying. 
-            However, it still remains low-fidelity results to inpaint the neck and the body which is hidden in the target image due to head shape difference and the long hair described in a red box of (b).
-            The blue box of (b) shows our high-fidelity results corresponding region to the red box of (b). 
-            Finally, Chroma-HS removes artifacts on the backgrounds through the chroma key technique as shown in the blue boxes of (c), and easily inserts various high-fidelity real-world backgrounds.
+            We propose Chroma-HS to consider the real-world application. As shown in (a), the existing work [2] (<a href="">HeSer</a>) shows severe artifacts on inpainting regions. 
+            To inpaint the background flawlessly, we propose to introduce chroma keying in the head swapping framework. 
+            However, it still shows low-fidelity results to inpaint the neck and the body, which is hidden due to the head shape and hair difference described in a red box of (b). 
+            Chroma-HS generates the high-fidelity foreground with Foreground-Prediction and -Aware Transformer (FPAT) and H<sup>2</sup> augmentation. 
+            Chroma-HS removes artifacts as shown in the blue boxes of (b) and (c), and easily changes various high-fidelity real-world backgrounds.
           </h2>
         </div>
       </div>
@@ -266,8 +267,9 @@
           <h2 class="title is-3">Methods</h2>
           <img src="./static/images/network.jpg" class="center">
           <h2 class="content has-text-justified">
-            Chroma-HS consists of an encoder (E), Head Colorizer blocks, Body Blender blocks including Mask-Prediction and -Aware Transformer (MPAT) modules, which are denoted with red arrows, and a decoder (D).
-            We visualize our proposed input (X) manipulation method (blue arrows) with overall training and inference scheme. The Head Colorizer colorizes the gray head of X, and the Body Blender inpaints the hidden body and the neck with a mask-aware attention mechanism.
+            Chroma-HS consists of H<sup>2</sup> augmentation, an encoder (E), a head colorizer, a body blender including Foreground-Prediction and -Aware Transformer (FPAT) modules, which are denoted with the red box, and a decoder (D).
+            We visualize our proposed input (X) manipulation method (the blue box) with overall training and inference schemes. 
+            The head colorizer colorizes the gray head of X, and the body blender inpaints the hidden body and the neck with a foreground mask-aware attention mechanism.
           </h2>
         </div>
       </div>
