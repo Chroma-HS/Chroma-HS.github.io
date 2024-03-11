@@ -160,7 +160,7 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3">High-Fidelity Industrial Head Swapping Pipeline</h2>
-          <img src="./static/images/main.jpg" class="center">
+          <img src="./static/images/pipeline.jpg" class="center">
           <h2 class="content has-text-justified">
             Illustration of our Chroma-HS pipeline: After acquiring the actor's frames (source), we can seamlessly insert acting scenes into the desired scenes with our Chroma-HS.
             Chroma keying ensures high-fidelity backgrounds. Both of the source and the target are virtual humans.
@@ -170,12 +170,32 @@
     </div>
   </div>
 </section>
-                
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Various Industrial Application Examples</h2>
+          <img src="./static/images/industrial_examples.jpg" class="center">
+          <h2 class="content has-text-justified">
+            By leveraging chroma key technique with our proposed Chroma-HS pipeline, we can obtain various high-fidelity head swapped videos in the wild environments. 
+            The red boxes represent the source images.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Effects of Our Contributions</h2>
+        <img src="./static/images/main.jpg" class="center">
         <div class="content has-text-justified">
           <p>
             Our novel H<sup>2</sup> augmentation and FPAT with chroma keying successfully achieves high-fidelity head swapping performance.
@@ -192,7 +212,6 @@
           </div>
       </div>
     </div>
-
     <div class="container is-max-desktop">
       <div class="columns is-centered">
           <div class="video-compare-container">
@@ -201,44 +220,9 @@
           </div>
       </div>
     </div>
-
-<!--     <div class="container is-max-desktop">
-      <div class="columns is-centered">
-          <div class="video-compare-container">
-              <video class="video" id="lincoln2" loop playsinline autoPlay muted src="./static/videos/lincoln2.mp4" onplay="resizeAndPlay(this)"></video>
-              <canvas height=0 class="videoMerge" id="lincoln2Merge"></canvas>
-          </div>
-      </div>
-    </div>
-
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-          <div class="video-compare-container">
-              <video class="video" id="sejong2" loop playsinline autoPlay muted src="./static/videos/sejong2.mp4" onplay="resizeAndPlay(this)"></video>
-              <canvas height=0 class="videoMerge" id="sejong2Merge"></canvas>
-          </div>
-      </div>
-    </div>
-
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-          <div class="video-compare-container">
-              <video class="video" id="lincoln3" loop playsinline autoPlay muted src="./static/videos/lincoln3.mp4" onplay="resizeAndPlay(this)"></video>
-              <canvas height=0 class="videoMerge" id="lincoln3Merge"></canvas>
-          </div>
-      </div>
-    </div>
-
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-          <div class="video-compare-container">
-              <video class="video" id="sejong3" loop playsinline autoPlay muted src="./static/videos/sejong3.mp4" onplay="resizeAndPlay(this)"></video>
-              <canvas height=0 class="videoMerge" id="sejong3Merge"></canvas>
-          </div>
-      </div>  
-    </div> -->
   </div>  
 </section>
+
 <hr>
                 
 <section class="section">
@@ -277,6 +261,25 @@
             However, it still shows low-fidelity results to inpaint the neck and the body, which is hidden due to the head shape and hair difference described in a red box of (b). 
             Chroma-HS generates the high-fidelity foreground with H<sup>2</sup> augmentation and Foreground Predictive Attention Transformer (FPAT). 
             Chroma-HS removes artifacts as shown in the blue boxes of (b) and (c), and easily changes various high-fidelity real-world backgrounds.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Methods</h2>
+          <img src="./static/images/network.jpg" class="center">
+          <h2 class="content has-text-justified">
+            Chroma-HS consists of H<sup>2</sup> augmentation, an encoder (E), a head colorizer, a body blender including Foreground Predictive Attention Transformer (FPAT) modules, and a decoder (D).
+            We visualize our proposed input (X) manipulation method with overall training (blue) and inference (red) schemes. 
+            The head colorizer colorizes the gray head of X, and the body blender inpaints the hidden body and the neck with a foreground mask-aware attention mechanism.
+            The Foreground-Prediction module predicts the foreground mask (M) of the body and the neck region, and the attention is reweighted according to M.
           </h2>
         </div>
       </div>
